@@ -30,6 +30,8 @@ public SecurityFilterChain securityFilterChain   (HttpSecurity http) throws Exce
             ->authorize.requestMatchers("/root/adminOffice").hasRole("ADMIN"));
     http.authorizeHttpRequests((authorize)
             ->authorize.requestMatchers("/root/all").permitAll());
+    http.authorizeHttpRequests((authorize)
+            ->authorize.requestMatchers("/root/useradmin").hasAnyRole("USER","ADMIN"));
 
    http.formLogin(Customizer.withDefaults());  // follows form login apporach
 

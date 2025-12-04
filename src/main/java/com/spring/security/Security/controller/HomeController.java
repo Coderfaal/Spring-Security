@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/root")
 public class HomeController {
+    @GetMapping("/useradmin")
+    public String userAdminPoint(HttpServletRequest request){return "~~WELCOME PEOPLE~~"+request.getSession().getId();}
 
     @GetMapping("/all")
     public String commonEndPoint(){
