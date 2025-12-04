@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/root")
+//@RestController
+//@RequestMapping("/root")
 public class HomeController {
     @GetMapping("/useradmin")
     public String userAdminPoint(HttpServletRequest request){return "~~WELCOME PEOPLE~~"+request.getSession().getId();}

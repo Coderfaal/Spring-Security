@@ -1,0 +1,59 @@
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class CounterServlet
+ */
+public class CounterServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public CounterServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession();
+
+		int count = 0;
+		if (session.isNew()) {
+
+			count++;
+			System.out.println(request.getRequestedSessionId());
+			session.setAttribute("visitCount", count);
+			out.println("count = " + (count));
+		} else {
+			         //if(session.getAttribute("visitCount")==null)
+
+			         //else
+			        	 count = (Integer) session.getAttribute("visitCount");
+                    		count++;
+                    		 session.setAttribute("visitCount", count);
+			if (count == 20) {
+                       session.invalidate();
+			} else {
+				System.out.println(request.getRequestedSessionId());
+				session.setAttribute("visitCount", count);
+				out.println("count= " + count);
+			}
+		}
+}
+
+}

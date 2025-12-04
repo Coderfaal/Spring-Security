@@ -1,0 +1,18 @@
+{
+    "username":" james",
+    "password":"bond ",
+    "role":"USER"
+}
+
+expected output
+
+{
+    "id": 1,
+    "username": " james",
+    "password": "$2a$10$eAH3pmrZEa4DcKu6B/iNA.b5SVubY0hoQIeR5EVjR0.OQzf8.cfSK",
+    "role": "USER"
+}
+
+
+post:http://localhost:7070/register/add
+authorization- no auth
